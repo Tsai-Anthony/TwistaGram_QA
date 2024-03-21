@@ -1,9 +1,8 @@
-package stepdefinitions;
+package cucumber.step_definitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import static org.junit.Assert.assertTrue;
 
 public class exSteps {
 
@@ -17,6 +16,5 @@ public class exSteps {
 
 	@Then("it should always pass")
 	public void it_should_always_pass() {
-		assertTrue("This test should always pass.", true);
 	}
 }
