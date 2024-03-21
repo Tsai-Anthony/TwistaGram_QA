@@ -7,7 +7,7 @@ Welcome to the Twistagram Test Automation Framework! This repository contains al
 This framework utilizes the following tools and technologies:
 
 - ![Java](URL_TO_JAVA_IMAGE)
-- src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://www.selenium.dev" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/detain/svg-logos/780f25886640cef088af994181646db2f6b1a3f8/svg/selenium-logo.svg" alt="selenium" width="40" height="40"/> </a> <a href="https://zapier.com" target="_blank" rel="noreferrer"> <img 
+- <img src="https://raw.githubusercontent.com/detain/svg-logos/780f25886640cef088af994181646db2f6b1a3f8/svg/selenium-logo.svg" alt="selenium" width="40" height="40"/> </a> <a href="https://zapier.com" target="_blank" rel="noreferrer"> <img 
 - ![Cucumber](URL_TO_CUCUMBER_IMAGE)
 - ![JUnit](URL_TO_JUNIT_IMAGE)
 - ![VSCode](URL_TO_VSCODE_IMAGE)
