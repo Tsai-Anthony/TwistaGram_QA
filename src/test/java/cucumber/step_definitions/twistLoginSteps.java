@@ -1,10 +1,12 @@
 package cucumber.step_definitions;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.en.Given;
@@ -23,9 +25,12 @@ public class twistLoginSteps {
 	
 	
 	@Given("User goes to Twistagram website")
-	public void user_goes_to_twistagram_website() {
-		//wait.until(ExpectedConditions.visibilityOf(loginPage.goToTwistaGram()));
+	public void user_goes_to_twistagram_website() {	
+		
 		loginPage.goToTwistaGram();
+		
+		assertEquals(loginPage.getURL(), driver.getCurrentUrl());
+		//validate if we are on the correct URL
 
 	}
 
@@ -45,7 +50,14 @@ public class twistLoginSteps {
 	public void user_should_land_on_check_your_email_screen(){
 		AppTestUtils.pause(5);
 		
+		assertEquals(loginPage.getEmailMessage(), "Check your email");
+		//validate check your email message screen display
+		
 		loginPage.clickReturnLink();
+		
+		assertEquals(loginPage.getReturnLink(), driver.getCurrentUrl());
+		//validate if return link brings us back to twistagram
+
 
 		driver.close();
 		driver.quit();
