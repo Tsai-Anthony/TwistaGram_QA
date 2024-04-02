@@ -1,24 +1,23 @@
 package cucumber.step_definitions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pojos.loginPage;
+import pages.loginPage;
 import utils.AppTestUtils;
+import utils.DriverManager;
 
 
 
 public class twistLoginSteps {
-	WebDriver driver = new ChromeDriver();
+	private WebDriver driver = DriverManager.getDriver();
 	loginPage loginPage = new loginPage(driver);
 	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 	

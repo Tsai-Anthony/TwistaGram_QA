@@ -1,20 +1,19 @@
 package cucumber.step_definitions;
 
+import utils.DriverManager;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import pojos.*;
+import pages.loginPage;
 import utils.AppTestUtils;
 
 public class loginGoogleSteps {
-	WebDriver driver = new ChromeDriver();
+	private WebDriver driver = DriverManager.getDriver();
 	loginPage loginPage = new loginPage(driver);
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 

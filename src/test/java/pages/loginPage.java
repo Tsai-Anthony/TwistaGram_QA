@@ -1,9 +1,11 @@
-package pojos;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import utils.ConfigReader;
 
 public class loginPage {
 	
@@ -11,7 +13,7 @@ public class loginPage {
 	// Local Variables
 	private WebDriver driver;
 	private String URL = "https://twistagram.re-boot.us/auth/signin?callbackUrl=https%3A%2F%2Ftwistagram.re-boot.us";
-	private String email = "test@gmail.com";
+	private String email = ConfigReader.getValue("config", "email");
 	private String returnURL = "https://twistagram.re-boot.us/auth/signin?callbackUrl=https%3A%2F%2Ftwistagram.re-boot.us%2Fauth%2Fsignin%3FcallbackUrl%3Dhttps%253A%252F%252Ftwistagram.re-boot.us";
 	
 	// Elements
@@ -84,7 +86,8 @@ public class loginPage {
 	}
 	
 	public void sendGmail() {
-		googleEmail.sendKeys("testing@gmail.com");
+		googleEmail.sendKeys(this.email); 
+		//email from using util/ cofig reader
 	}
 	
 }
