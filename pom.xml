@@ -4,7 +4,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>twistagram.app</groupId>
-	<artifactId>twistagram-webapp-test</artifactId>
+	<artifactId>twistagram-qa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
