@@ -34,8 +34,9 @@ public class loginGoogleSteps {
 		AppTestUtils.pause(2);
 		loginPage.sendPassword();
 		AppTestUtils.pause(5);
-		loginPage.passwordNext();
-		AppTestUtils.pause(10);
+		loginPage.clickNext();
+		AppTestUtils.pause(5);
+		loginPage.clickContinue();
 
 		
 	}
@@ -43,8 +44,8 @@ public class loginGoogleSteps {
 	@Then("User is logged into Twistagram")
 	public void user_is_logged_into_twistagram() {
 		
-		driver.close();
-		driver.quit();
+//		driver.close();
+//		driver.quit();
 
 	}
 
