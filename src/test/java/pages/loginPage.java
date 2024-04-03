@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utils.ConfigReader;
+//import confing
 
 public class loginPage {
 	
@@ -13,9 +14,13 @@ public class loginPage {
 	// Local Variables
 	private WebDriver driver;
 	private String URL = "https://twistagram.re-boot.us/auth/signin?callbackUrl=https%3A%2F%2Ftwistagram.re-boot.us";
-	private String email = ConfigReader.getValue("config", "email");
 	private String returnURL = "https://twistagram.re-boot.us/auth/signin?callbackUrl=https%3A%2F%2Ftwistagram.re-boot.us%2Fauth%2Fsignin%3FcallbackUrl%3Dhttps%253A%252F%252Ftwistagram.re-boot.us";
+
+	//config value 
+	private String email = ConfigReader.getValue("config", "email");
+	private String password = ConfigReader.getValue("config", "password");
 	
+		
 	// Elements
 	@FindBy(xpath ="//*[@id='email-input']")
 	private WebElement emailBox;
@@ -34,6 +39,15 @@ public class loginPage {
 	
 	@FindBy(xpath = "//*[@id='identifierId']")
 	private WebElement googleEmail;
+	
+	@FindBy(xpath = "//*[@id='identifierNext']")
+	private WebElement signInNextButton;
+	
+	@FindBy(xpath = "//*[@name='Passwd']")
+	private WebElement passwordBox;
+	
+	@FindBy(xpath = "//*[@id='passwordNext']")
+	private WebElement passwordNextButton;
 	
 	
 	//Contructor
@@ -77,6 +91,7 @@ public class loginPage {
 	}
 	public void sendEmail() {
 		emailBox.sendKeys(this.email);
+		
 	}
 	public void goToTwistaGram() {
 		driver.get(URL);
@@ -89,6 +104,14 @@ public class loginPage {
 		googleEmail.sendKeys(this.email); 
 		//email from using util/ cofig reader
 	}
-	
+	public void clickNext() {
+		signInNextButton.click();
+	}
+	public void sendPassword() {
+		passwordBox.sendKeys(this.password);
+	}
+	public void passwordNext() {
+		passwordNextButton.click();
+	}
 }
 
