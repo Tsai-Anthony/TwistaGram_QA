@@ -40,14 +40,15 @@ public class loginPage {
 	@FindBy(xpath = "//*[@id='identifierId']")
 	private WebElement googleEmail;
 	
-	@FindBy(xpath = "//*[@id='identifierNext']")
-	private WebElement signInNextButton;
+	@FindBy(xpath = "//span[text()='Next']")
+	private WebElement NextButton;
 	
 	@FindBy(xpath = "//*[@name='Passwd']")
 	private WebElement passwordBox;
 	
-	@FindBy(xpath = "//*[@id='passwordNext']")
-	private WebElement passwordNextButton;
+	@FindBy(xpath = "//span[text()='Continue']")
+	private WebElement continueButton;
+
 	
 	
 	//Contructor
@@ -105,13 +106,14 @@ public class loginPage {
 		//email from using util/ cofig reader
 	}
 	public void clickNext() {
-		signInNextButton.click();
+		NextButton.click();
 	}
 	public void sendPassword() {
 		passwordBox.sendKeys(this.password);
 	}
-	public void passwordNext() {
-		passwordNextButton.click();
+	public void clickContinue() {
+		continueButton.click();
 	}
+
 }
 
