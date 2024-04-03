@@ -16,6 +16,7 @@ public class loginGoogleSteps {
 	private WebDriver driver = DriverManager.getDriver();
 	loginPage loginPage = new loginPage(driver);
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	
 
 	@Given("User clicks on login with google button")
 	public void user_clicks_on_login_with_google_button() {
@@ -29,6 +30,12 @@ public class loginGoogleSteps {
 		AppTestUtils.pause(5);
 		loginPage.sendGmail();
 		AppTestUtils.pause(5);
+		loginPage.clickNext();
+		AppTestUtils.pause(2);
+		loginPage.sendPassword();
+		AppTestUtils.pause(5);
+		loginPage.passwordNext();
+		AppTestUtils.pause(10);
 
 		
 	}
