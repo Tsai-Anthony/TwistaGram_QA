@@ -27,7 +27,7 @@ public class TestWebHook {
 	public void tearDown(Scenario scenario) {
 		if (Boolean.valueOf(ConfigReader.getValue("config", "screenshot")) && scenario.isFailed())
 			DataManager.getWebUtils().savesScreenshot();
-		DriverManager.reset();
+		//DriverManager.reset();
 		PageManager.reset();
 		DataManager.reset();
 	}

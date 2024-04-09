@@ -14,7 +14,7 @@ public class loginPage {
 	// Local Variables
 	private WebDriver driver;
 	private String URL = "https://twistagram.re-boot.us/auth/signin?callbackUrl=https%3A%2F%2Ftwistagram.re-boot.us";
-	private String returnURL = "https://twistagram.re-boot.us/auth/signin?callbackUrl=https%3A%2F%2Ftwistagram.re-boot.us%2Fauth%2Fsignin%3FcallbackUrl%3Dhttps%253A%252F%252Ftwistagram.re-boot.us";
+//	private String returnURL = "https://twistagram.re-boot.us/auth/signin?callbackUrl=https%3A%2F%2Ftwistagram.re-boot.us%2Fauth%2Fsignin%3FcallbackUrl%3Dhttps%253A%252F%252Ftwistagram.re-boot.us";
 
 	//config value 
 	private String email = ConfigReader.getValue("config", "email");
@@ -31,8 +31,8 @@ public class loginPage {
 	@FindBy(xpath = "//h1")
 	private WebElement checkEmailMessage;
 	
-	@FindBy(xpath = "//*[@class='site']")
-	private WebElement returnLink;
+//	@FindBy(xpath = "//*[@class='site']")
+//	private WebElement returnLink;
 	
 	@FindBy(xpath = "//*[@id='google-login']/button")
 	private WebElement googleButton;
@@ -69,9 +69,9 @@ public class loginPage {
 		return checkEmailMessage.getText();
 	}
 	
-	public String getReturnLink() {
-		return returnURL;
-	}
+//	public String getReturnLink() {
+//		return returnURL;
+//	}
 	//Setter
 //	public void setEmail() {
 //		this.email = email;
@@ -87,9 +87,9 @@ public class loginPage {
 	public void actualMessage() {
 		checkEmailMessage.getText();
 	}
-	public void clickReturnLink() {
-		returnLink.click();
-	}
+//	public void clickReturnLink() {
+//		returnLink.click();
+//	}
 	public void sendEmail() {
 		emailBox.sendKeys(this.email);
 		
@@ -116,4 +116,5 @@ public class loginPage {
 	}
 
 }
+
 

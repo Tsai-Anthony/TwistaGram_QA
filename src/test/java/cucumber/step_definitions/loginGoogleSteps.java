@@ -3,7 +3,9 @@ package cucumber.step_definitions;
 import utils.DriverManager;
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.en.Given;
@@ -18,24 +20,24 @@ public class loginGoogleSteps {
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	
 
-	@Given("User clicks on login with google button")
-	public void user_clicks_on_login_with_google_button() {
+	@Given("user logs into twistagram")
+	public void user_logs_into_twistagram() {
 		loginPage.goToTwistaGram();
 		loginPage.clickGoogleButton();
-
-	}
-
-	@When("User enters their email and password")
-	public void user_enters_their_email_and_password() {
-		AppTestUtils.pause(5);
+//login 
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("identifierId")));
 		loginPage.sendGmail();
-		AppTestUtils.pause(5);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Next']")));
 		loginPage.clickNext();
-		AppTestUtils.pause(2);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password")));
 		loginPage.sendPassword();
-		AppTestUtils.pause(5);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Next']")));
 		loginPage.clickNext();
-		AppTestUtils.pause(5);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Continue']")));
 		loginPage.clickContinue();
 
 		
@@ -44,8 +46,9 @@ public class loginGoogleSteps {
 	@Then("User is logged into Twistagram")
 	public void user_is_logged_into_twistagram() {
 		
-//		driver.close();
-//		driver.quit();
+		driver.close();
+		driver.quit();
+
 
 	}
 
