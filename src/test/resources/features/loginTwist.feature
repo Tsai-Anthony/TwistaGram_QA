@@ -1,5 +1,6 @@
 Feature: loginTwist
-@smoke
+
+  @smoke @ui
   Scenario: Logging into Twistagram
     Given User goes to Twistagram website
     And User enters their email

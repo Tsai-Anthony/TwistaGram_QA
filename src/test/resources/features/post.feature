@@ -1,7 +1,6 @@
-@tag
 Feature: post
 
-  @tag1
+  @ui
   Scenario: Post a message
     Given user logs into twistagram
     And user clicks on post page
