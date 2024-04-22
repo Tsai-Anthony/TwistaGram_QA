@@ -47,8 +47,7 @@ public class postSteps {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@role='dialog']//button[2]")));
 		///AppTestUtils.pause(5);
 		PostPage.clickConfirmDeleteButton();
-		driver.close();
-		driver.quit();
+		
 	}
 
 }
