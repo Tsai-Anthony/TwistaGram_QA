@@ -53,7 +53,17 @@ public class profileSteps {
 
 	@Then("user should see updated profile")
 	public void user_should_see_updated_profile() {
-	//	assertEquals(profilePage., "hello");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//h6)[1]")));
+	assertEquals("hello",profilePage.getNameDisplay());
+	
+	assertEquals("@loops ",profilePage.getUserNameDisplay());
+		
+	assertEquals("are not our friends",profilePage.getBioDisplay())	;
+	driver.close();
+		driver.quit();
+		
+			
+		
 	}
 
 }
