@@ -38,6 +38,26 @@ public class ProfilePage {
 
 	@FindBy(xpath = "//*[@id='save-button']")
 	private WebElement saveButton;
+	
+	@FindBy(xpath = "(//h6)[1]")
+	private WebElement nameDisplay;
+	
+	@FindBy(xpath = "(//*[@id='body-id']//main//p[1])[1]")
+	private WebElement usernameDisplay;
+	
+	@FindBy(xpath = "//*[@id='body-id']//main//p[2]")
+	private WebElement bioDisplay;
+	
+	//getter
+	public String getNameDisplay() {
+		return nameDisplay.getText();
+	}
+	public String getUserNameDisplay() {
+		return usernameDisplay.getText();
+	}
+	public String getBioDisplay() {
+		return bioDisplay.getText();
+	}
 
 	// Method
 
@@ -55,22 +75,24 @@ public class ProfilePage {
 
 	public void enterData(String name, String username, String bio) {
 		clearData(nameTextField);
-		nameTextField.sendKeys(name);
-		
+		//nameTextField.sendKeys(name);	
 		clearData(usernameTextField);
-
-		usernameTextField.sendKeys(username);
-
+		//usernameTextField.sendKeys(username);
 		clearData(bioTextField);
-
+		
+		
+		
+		
+		nameTextField.sendKeys(name);
+		usernameTextField.sendKeys(username);
 		bioTextField.sendKeys(bio);
 
 	}
 
-	public void clearData(WebElement textfield) {
-		String currentString = textfield.getAttribute("value");
+	public void clearData(WebElement data) {
+		String currentString = data.getAttribute("value");
 		for (int i = 0; i < currentString.length(); i++) {
-			textfield.sendKeys(Keys.BACK_SPACE);
+			data.sendKeys(Keys.BACK_SPACE);
 		}
 		
 	}

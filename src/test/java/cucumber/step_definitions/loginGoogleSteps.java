@@ -24,7 +24,7 @@ public class loginGoogleSteps {
 	public void user_logs_into_twistagram() {
 		loginPage.goToTwistaGram();
 		loginPage.clickGoogleButton();
-//login 
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("identifierId")));
 		loginPage.sendGmail();
 		

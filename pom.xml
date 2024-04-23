@@ -161,6 +161,7 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>6.4.3.Final</version>
 		</dependency>
+		
 	</dependencies>
 
 	<build>

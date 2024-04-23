@@ -7,9 +7,11 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pages.ProfilePage;
@@ -53,7 +55,35 @@ public class profileSteps {
 
 	@Then("user should see updated profile")
 	public void user_should_see_updated_profile() {
-	//	assertEquals(profilePage., "hello");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//h6)[1]")));
+		assertEquals("hello", profilePage.getNameDisplay());
+		assertEquals("@loops", profilePage.getUserNameDisplay());
+		assertEquals("are not our friends", profilePage.getBioDisplay());
+//		driver.close();
+//		driver.quit();
 	}
+	@Then("user may only enter name, username, or bio")
+	public void user_may_only_enter_name_username_or_bio(io.cucumber.datatable.DataTable dataTable) {
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@type='text'])[1]")));
+		
+		
+		 Map<String, String> data = dataTable.asMap(String.class, String.class);
+		profilePage.enterData(data.get("name"), data.get("username") , data.get("bio"));
+	
+
+	}
+
+	@Then("user should see error message")
+	public void user_should_see_error_message() {
+
+	}
+	@And("user returns to the profile page to make another entry")
+	public void user_returns_to_profile_page_to_make_another_entry() {
+	   
+	    profilePage.clickProfileButton(); 
+	    
+	}
+
 
 }
