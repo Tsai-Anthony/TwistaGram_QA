@@ -69,7 +69,7 @@ public class AppTestUtils {
 	}
 
 	public static boolean getDefaultTestCheck() {
-		return Boolean.valueOf(ConfigReader.getValue("config", "check").strip().toLowerCase());
+		return Boolean.valueOf(ConfigReader.getTextValue("check").strip().toLowerCase());
 	}
 
 	public static String getOS() {

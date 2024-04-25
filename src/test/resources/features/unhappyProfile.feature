@@ -13,6 +13,7 @@ Feature: profile feature
     Then user should see error message
     And user returns to the profile page to make another entry
     
+    
 
     Examples: 
       | name   | username   | bio     |

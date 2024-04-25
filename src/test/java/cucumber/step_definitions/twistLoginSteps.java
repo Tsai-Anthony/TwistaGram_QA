@@ -17,7 +17,7 @@ import utils.DriverManager;
 
 
 public class twistLoginSteps {
-	private WebDriver driver = DriverManager.getDriver();
+	private WebDriver driver = DriverManager.getInstance().getDriver();
 	loginPage loginPage = new loginPage(driver);
 	WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 	

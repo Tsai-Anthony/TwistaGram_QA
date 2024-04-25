@@ -17,8 +17,8 @@ public class loginPage {
 //	private String returnURL = "https://twistagram.re-boot.us/auth/signin?callbackUrl=https%3A%2F%2Ftwistagram.re-boot.us%2Fauth%2Fsignin%3FcallbackUrl%3Dhttps%253A%252F%252Ftwistagram.re-boot.us";
 
 	//config value 
-	private String email = ConfigReader.getValue("config", "email");
-	private String password = ConfigReader.getValue("config", "password");
+	private String email = ConfigReader.getTextValue("email");
+	private String password = ConfigReader.getTextValue("password");
 	
 		
 	// Elements

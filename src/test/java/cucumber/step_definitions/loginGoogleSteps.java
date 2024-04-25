@@ -15,7 +15,7 @@ import pages.loginPage;
 import utils.AppTestUtils;
 
 public class loginGoogleSteps {
-	private WebDriver driver = DriverManager.getDriver();
+	private WebDriver driver = DriverManager.getInstance().getDriver();
 	loginPage loginPage = new loginPage(driver);
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	

@@ -11,4 +11,5 @@ Feature: profile feature
       | bio      | are not our friends |
     And user clicks on save button
     Then user should see updated profile
+    
 

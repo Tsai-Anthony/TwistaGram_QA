@@ -58,7 +58,7 @@ public class DriverFactory {
 			browser = System.getProperty(browserKey).strip().toLowerCase();
 		else {
 			try {
-				String browserTempValue = String.valueOf(ConfigReader.getValue("config", browserKey)).strip()
+				String browserTempValue = String.valueOf(ConfigReader.getTextValue( browserKey)).strip()
 						.toLowerCase();
 				List<String> browserNames = Arrays.asList("chrome", "edge", "firefox", "safari");
 				if (browserNames.contains(browserTempValue))
@@ -75,7 +75,7 @@ public class DriverFactory {
 			auto = Boolean.valueOf(System.getProperty(autoKey).strip().toLowerCase());
 		else {
 			try {
-				auto = Boolean.valueOf(ConfigReader.getValue("config", autoKey));
+				auto = Boolean.valueOf(ConfigReader.getTextValue( autoKey));
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
@@ -86,7 +86,7 @@ public class DriverFactory {
 			headless = Boolean.valueOf(System.getProperty(headlessKey).strip().toLowerCase());
 		else {
 			try {
-				headless = Boolean.valueOf(ConfigReader.getValue("config", headlessKey));
+				headless = Boolean.valueOf(ConfigReader.getTextValue( headlessKey));
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
@@ -97,7 +97,7 @@ public class DriverFactory {
 			mobile = Boolean.valueOf(System.getProperty(mobileKey).strip().toLowerCase());
 		else {
 			try {
-				mobile = Boolean.valueOf(ConfigReader.getValue("config", mobileKey));
+				mobile = Boolean.valueOf(ConfigReader.getTextValue( mobileKey));
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
@@ -108,7 +108,7 @@ public class DriverFactory {
 			deviceName = String.valueOf(System.getProperty(deviceKey).strip());
 		else {
 			try {
-				deviceName = String.valueOf(ConfigReader.getValue("config", deviceKey));
+				deviceName = String.valueOf(ConfigReader.getTextValue( deviceKey));
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
@@ -205,27 +205,27 @@ public class DriverFactory {
 	 */
 	private static void setChromeOptions(ChromeOptions options) {
 		options.addArguments("--no-sandbox");
-		if (Boolean.valueOf(ConfigReader.getValue("config", "useTestChrome")))
+		if (Boolean.valueOf(ConfigReader.getTextValue( "useTestChrome")))
 			useChromeForTest(options);
 		else
 			useChromeProfile(options);
 	}
 
 	private static void useChromeProfile(ChromeOptions options) {
-		options.addArguments(String.format("--user-data-dir=%s", ConfigReader.getValue("config", "userData")));
-		options.addArguments(String.format("--profile-directory=%s", ConfigReader.getValue("config", "profile")));
+		options.addArguments(String.format("--user-data-dir=%s", ConfigReader.getTextValue( "userData")));
+		options.addArguments(String.format("--profile-directory=%s", ConfigReader.getTextValue( "profile")));
 	}
 
 	private static void useChromeForTest(ChromeOptions options) {
-		options.addArguments(String.format("--user-data-dir=%s", ConfigReader.getValue("config", "testUserData")));
-		options.addArguments(String.format("--profile-directory=%s", ConfigReader.getValue("config", "testProfile")));
-		options.setBinary(ConfigReader.getValue("config", "testChromeBin"));
+		options.addArguments(String.format("--user-data-dir=%s", ConfigReader.getTextValue( "testUserData")));
+		options.addArguments(String.format("--profile-directory=%s", ConfigReader.getTextValue("testProfile")));
+		options.setBinary(ConfigReader.getTextValue( "testChromeBin"));
 	}
 
 	private static void findChromeHeadless(ChromeOptions options) {
 		if (headless) {
 			options.addArguments("--headless=new");
-			options.addArguments("--user-agent=" + ConfigReader.getValue("config", "userAgent"));
+			options.addArguments("--user-agent=" + ConfigReader.getTextValue( "userAgent"));
 		}
 	}
 
@@ -263,13 +263,13 @@ public class DriverFactory {
 		// turn off geographical locator
 		firefoxOptions.addPreference("geo.enabled", false);
 		useFirefoxProfile(firefoxOptions);
-		String firefoxBin = ConfigReader.getValue("config", "firefoxBin");
+		String firefoxBin = ConfigReader.getTextValue( "firefoxBin");
 		if (firefoxBin != null)
 			firefoxOptions.setBinary(firefoxBin);
 	}
 
 	private static void useFirefoxProfile(FirefoxOptions firefoxOptions) {
-		firefoxOptions.addArguments("-profile", ConfigReader.getValue("config", "firefoxProfile"));
+		firefoxOptions.addArguments("-profile", ConfigReader.getTextValue( "firefoxProfile"));
 	}
 
 	private static void findFirefoxHeadless(FirefoxOptions options) {

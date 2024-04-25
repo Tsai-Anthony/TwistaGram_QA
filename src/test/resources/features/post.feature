@@ -1,6 +1,6 @@
 Feature: post
 
-  @ui
+  @test
   Scenario: Post a message
     Given user logs into twistagram
     And user clicks on post page

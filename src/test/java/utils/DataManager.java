@@ -41,7 +41,7 @@ public class DataManager {
 
 	public static WebUtils getWebUtils() {
 		if (webUtils == null)
-			webUtils = new WebUtils(DriverManager.getDriver());
+			webUtils = new WebUtils(DriverManager.getInstance().getDriver());
 		return webUtils;
 	}
 

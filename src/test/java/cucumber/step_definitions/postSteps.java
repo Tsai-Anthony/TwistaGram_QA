@@ -16,7 +16,7 @@ import pages.PostPage;
 import pages.loginPage;
 
 public class postSteps {
-	private WebDriver driver = DriverManager.getDriver();
+	private WebDriver driver = DriverManager.getInstance().getDriver();
 	loginPage loginPage = new loginPage(driver);
 	PostPage PostPage = new PostPage(driver);
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

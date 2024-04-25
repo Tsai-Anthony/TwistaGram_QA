@@ -18,7 +18,7 @@ import pages.ProfilePage;
 import utils.DriverManager;
 
 public class profileSteps {
-	private WebDriver driver = DriverManager.getDriver();
+	private WebDriver driver = DriverManager.getInstance().getDriver();
 	ProfilePage profilePage = new ProfilePage(driver);
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	

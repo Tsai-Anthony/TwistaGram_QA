@@ -1,6 +1,6 @@
 Feature: logout
 
-  @ui @happy
+  @ui @happy @test
   Scenario: Logout Twistagram 
     Given user logs into twistagram
     And user clicks on greycircle

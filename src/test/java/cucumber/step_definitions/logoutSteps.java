@@ -19,7 +19,7 @@ import pages.loginPage;
 import pages.LogoutPage;
 
 public class logoutSteps {
-	private WebDriver driver = DriverManager.getDriver();
+	private WebDriver driver = DriverManager.getInstance().getDriver();
 	loginPage loginPage = new loginPage(driver);
 	LogoutPage logout = new LogoutPage(driver);
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

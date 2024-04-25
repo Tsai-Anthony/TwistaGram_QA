@@ -27,7 +27,7 @@ public class WebUtils {
 
 	public WebUtils(WebDriver driver) {
 		this.driver = driver;
-		wait = new WebDriverWait(driver, Duration.ofSeconds(Long.valueOf(ConfigReader.getValue("config", "waitTime"))));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(Long.valueOf(ConfigReader.getTextValue("waitTime"))));
 		actions = new Actions(driver);
 		js = (JavascriptExecutor) driver;
 	}
@@ -86,9 +86,9 @@ public class WebUtils {
 	public void testEnvLogin() {
 		// remove the line below when the problem is fixed
 		assertTrue(false, "This method is locked out at this moment.");
-		wait.until(ExpectedConditions.urlContains(ConfigReader.getValue("test-env", "url")));
+		wait.until(ExpectedConditions.urlContains(ConfigReader.getTextValue("url")));
 		String originWindow = driver.getWindowHandle();
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(ConfigReader.getValue("test-env", "id"))))
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(ConfigReader.getTextValue( "id"))))
 				.click();
 		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 		Set<String> windows = driver.getWindowHandles();
@@ -100,12 +100,12 @@ public class WebUtils {
 			}
 		}
 		driver.switchTo().window(targetWindow);
-		driver.findElement(By.name("login")).sendKeys(ConfigReader.getValue("test-env", "username"));
-		driver.findElement(By.name("password")).sendKeys(ConfigReader.getValue("test-env", "password"));
+		driver.findElement(By.name("login")).sendKeys(ConfigReader.getTextValue( "username"));
+		driver.findElement(By.name("password")).sendKeys(ConfigReader.getTextValue( "password"));
 		driver.findElement(By.name("commit")).submit();
 		wait.until(ExpectedConditions.numberOfWindowsToBe(1));
 		driver.switchTo().window(originWindow);
-		wait.until(ExpectedConditions.urlContains(ConfigReader.getValue("config", "url")));
+		wait.until(ExpectedConditions.urlContains(ConfigReader.getTextValue("url")));
 	}
 
 	/**

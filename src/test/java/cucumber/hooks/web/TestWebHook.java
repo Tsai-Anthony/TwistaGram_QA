@@ -13,7 +13,7 @@ public class TestWebHook {
 
 	@Before(order = 2, value = "@ui or @web")
 	public void setUp() {
-		DriverManager.getDriver();
+		DriverManager.getInstance().getDriver();
 		PageManager.getInstance();
 		DataManager.getInstance();
 	}
@@ -25,9 +25,9 @@ public class TestWebHook {
 
 	@After(order = 2, value = "@ui or @web")
 	public void tearDown(Scenario scenario) {
-		if (Boolean.valueOf(ConfigReader.getValue("config", "screenshot")) && scenario.isFailed())
+		if (Boolean.valueOf(ConfigReader.getTextValue( "screenshot")) && scenario.isFailed())
 			DataManager.getWebUtils().savesScreenshot();
-		//DriverManager.reset();
+		DriverManager.reset();
 		PageManager.reset();
 		DataManager.reset();
 	}

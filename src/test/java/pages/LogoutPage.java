@@ -28,6 +28,7 @@ public class LogoutPage {
 
 	@FindBy(xpath = "//h6")
 	private WebElement texttline;
+	
 	@FindBy(xpath = "//*[@type='button'][1]")
 	private WebElement gobackButton;
 
